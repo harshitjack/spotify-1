@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Register.css'
+// these two lines use to make the API call to the backend,
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -21,7 +22,7 @@ export default function Register() {
         const { name, value } = e.target
         setForm(f => ({ ...f, [ name ]: value }))
     }
-
+ // this  hansleSubmit function is used to make the API call to the backend 
     async function handleSubmit(e) {
         e.preventDefault()
         try {

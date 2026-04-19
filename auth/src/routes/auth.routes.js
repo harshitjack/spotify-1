@@ -1,11 +1,12 @@
 import express from 'express'
-import { googleAuthController, registerController } from '../controller/auth.controller.js'
-import {registerValidation} from '../middleware/validator.middleware.js'
+import { googleAuthController, registerController ,loginsController} from '../controller/auth.controller.js'
+import {registerValidation,loginValidator} from '../middleware/validator.middleware.js'
 import passport from "passport";
 
 const router = express.Router()
 
 router.post('/register', registerValidation, registerController)
+router.post('/login', loginValidator, loginsController)
 
 router.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
